@@ -1,0 +1,36 @@
+.main {
+  height: 90vh;
+  background-image: url("../../../assets/background1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  display: flex;
+}
+.intro-text {
+  width: 100%;
+  text-align: center;
+}
+.heading-txt {
+  font-size: 80px;
+}
+.subheading {
+  padding-top: 10px;
+  font-size: 25px;
+}
+.buttoncontainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding-top: 20px;
+}
+
+@media only screen and (max-width: 786px) {
+  .heading-txt {
+    font-size: 50px;
+  }
+  .subheading {
+    padding-top: 10px;
+    font-size: 25px;
+  }
+}
