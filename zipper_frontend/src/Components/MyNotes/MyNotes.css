@@ -1,0 +1,11 @@
+.card-header{
+    display: flex;
+    justify-content: space-between;
+}
+.edit{
+    padding-right: 20px;
+}
+.badges{
+    font-size: 15px;
+    color: white;
+}

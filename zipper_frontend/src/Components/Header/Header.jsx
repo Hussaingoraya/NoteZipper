@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { Link, Links } from "react-router-dom";
 // import {Navbar , Button , Container, Form , Nav , NavDropdown} from "react-bootstrap"
 
 export default function Header() {
@@ -11,7 +12,12 @@ export default function Header() {
     <div>
       <Navbar bg="primary" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+          <Navbar.Brand >
+            <Link to={'/'}>
+            Navbar scroll
+
+            </Link>
+            </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="m-auto">
@@ -31,7 +37,12 @@ export default function Header() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="#action1">My Notes</Nav.Link>
+              <Nav.Link >
+                <Link to={'mynotes'}>
+                My Notes
+
+                </Link>
+                </Nav.Link>
               <NavDropdown title="Link" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">profile</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
