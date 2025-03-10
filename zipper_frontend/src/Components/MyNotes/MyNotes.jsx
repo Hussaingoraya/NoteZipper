@@ -6,6 +6,8 @@ import { Card } from "react-bootstrap";
 import Notes from "../Data/Notes";
 import "./MyNotes.css";
 import { useAccordionButton } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionButton(eventKey);
@@ -29,6 +31,21 @@ function CustomToggle({ children, eventKey }) {
 }
 
 export default function MyNotes() {
+  const [notes, setNotes] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const { data } = await axios.get("http://127.0.0.1:5000/api/notes");
+      setNotes(data);
+      console.log("Response Data:", response.data);
+    } catch (error) {
+      console.error("Error fetching notes:", error);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <>
       <MainScreen title="Welcome back Hussain">
@@ -37,22 +54,23 @@ export default function MyNotes() {
             Create a Note
           </Button>
         </Link>
-        {Notes.map((note) => (
+        {notes.map((note) => (
           <Accordion>
             <Card style={{ marginTop: 20 }} key={note.id}>
-              <CustomToggle eventKey="0">
-                <Card.Header className="card-header">
-                  {note.title}
-                  <div>
-                    <Link className="edit">
-                      <Button variant="success">Edit</Button>
-                    </Link>
-                    <Link>
-                      <Button variant="danger">Delete</Button>
-                    </Link>
-                  </div>
-                </Card.Header>
-              </CustomToggle>
+              <Card.Header className="card-header">
+                <CustomToggle eventKey="0">
+                  <span>{note.title}</span>{" "}
+                </CustomToggle>
+
+                <div>
+                  <Link className="edit">
+                    <Button variant="success">Edit</Button>
+                  </Link>
+                  <Link>
+                    <Button variant="danger">Delete</Button>
+                  </Link>
+                </div>
+              </Card.Header>
 
               <Accordion.Collapse eventKey="0">
                 <Card.Body>
@@ -60,7 +78,7 @@ export default function MyNotes() {
                     Category - {note.category}
                   </Badge>
                   <blockquote className="blockquote mb-0">
-                    <p>{note.description}</p>
+                    <p>{note.content}</p>
                   </blockquote>
                 </Card.Body>
               </Accordion.Collapse>
