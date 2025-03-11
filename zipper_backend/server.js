@@ -1,10 +1,13 @@
 const express = require("express");
 const notes = require("./data/notes");
-const cors = require ("cors")
+const cors = require ("cors");
+const connectDB = require("./Config/db");
 require("dotenv").config();
 const app = express();
 
 app.use(cors({ origin: "http://localhost:5173" })); 
+
+connectDB()
 
 app.get("/api/notes", (req, res) => {
   res.json(notes);
