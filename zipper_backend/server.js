@@ -4,8 +4,10 @@ const cors = require ("cors");
 const connectDB = require("./Config/db");
 require("dotenv").config();
 const app = express();
+const userRoutes = require("./Routes/UserRoutes/UserRoutes")
 
 app.use(cors({ origin: "http://localhost:5173" })); 
+app.use("api/user",userRoutes)
 
 connectDB()
 
