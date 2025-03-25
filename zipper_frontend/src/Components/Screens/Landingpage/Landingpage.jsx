@@ -1,8 +1,9 @@
 import React from "react";
 import { Button, Container, Row, Col } from "react-bootstrap";
 import "./Landingpage.css";
+import {Link} from 'react-router-dom'
 
-export default function Landingpage() {
+ const Landingpage=()=> {
   return (
     <>
       <div className="main">
@@ -16,14 +17,14 @@ export default function Landingpage() {
             </div>
 
             <div className="buttoncontainer">
-              <a href="/login">
+              <Link to = '/login'>
                 <Button size="lg" className="landing-btn ">
                   Login
                 </Button>
-              </a>
-              <a href="/signup">
+              </Link>
+              <Link to="/register">
                 <Button size="lg" variant="outline-primary" className="landing-btn">Signup</Button>
-              </a>
+              </Link>
             </div>
           </Row>
         </Container>
@@ -31,3 +32,4 @@ export default function Landingpage() {
     </>
   );
 }
+export default Landingpage
