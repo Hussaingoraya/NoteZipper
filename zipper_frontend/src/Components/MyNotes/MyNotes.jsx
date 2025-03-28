@@ -35,9 +35,9 @@ export default function MyNotes() {
 
   const fetchData = async () => {
     try {
-      const { data } = await axios.get("http://127.0.0.1:5000/api/notes");
+      const { data } = await axios.get("http://127.0.0.1:5000/api/usernotes/getnotes");
       setNotes(data);
-      console.log("Response Data:", response.data);
+      console.log("Response Data:", data);
     } catch (error) {
       console.error("Error fetching notes:", error);
     }
@@ -49,7 +49,7 @@ export default function MyNotes() {
   return (
     <>
       <MainScreen title="Welcome back Hussain">
-        <Link to={"createnote"}>
+        <Link to={"/createnotes"}>
           <Button size="lg" className="note-btn">
             Create a Note
           </Button>
@@ -77,8 +77,8 @@ export default function MyNotes() {
                   <Badge className="badges" bg="success">
                     Category - {note.category}
                   </Badge>
-                  <blockquote className="blockquote mb-0">
-                    <p>{note.content}</p>
+                  <blockquote className="blockquote mb-0 mt-2">
+                    <p>{note.description}</p>
                   </blockquote>
                 </Card.Body>
               </Accordion.Collapse>

@@ -13,8 +13,8 @@ export default function Header() {
       <Navbar bg="primary" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand >
-            <Link to={'/'}>
-            Navbar scroll
+            <Link to={'/mynotes'}>
+            Note-Zipper
 
             </Link>
             </Navbar.Brand>
@@ -39,14 +39,14 @@ export default function Header() {
             >
               <Nav.Link >
                 <Link to={'mynotes'}>
-                My Notes
+                Profile
 
                 </Link>
                 </Nav.Link>
               <NavDropdown title="Link" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">profile</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
-                  Another action
+                  Logout
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action5">

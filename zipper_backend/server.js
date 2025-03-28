@@ -5,14 +5,15 @@ const connectDB = require("./Config/db");
 require("dotenv").config();
 const app = express();
 const userRoutes = require("./Routes/UserRoutes/UserRoutes");
+const NotesRoutes = require("./Routes/NotesRoutes/NotesRoutes");
 app.use(express.json());
 
 app.use(cors({ origin: "http://localhost:5173" }));
-app.use("/api/user", userRoutes);
 
 connectDB();
 
 app.use("/api/user", userRoutes);
+app.use("/api/usernotes", NotesRoutes);
 
 app.get("/api/notes", (req, res) => {
   res.json(notes);
